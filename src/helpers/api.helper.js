@@ -11,6 +11,17 @@ export const getAllCourses = async () => {
   }
 };
 
+export const getCourse = async (id) => {
+  try {
+    const response = await fetch(`${config.API_BASE}/courses/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+};
+
 export const createCourse = async (course) => {
   try {
     const response = await fetch(`${config.API_BASE}/courses/`, {
